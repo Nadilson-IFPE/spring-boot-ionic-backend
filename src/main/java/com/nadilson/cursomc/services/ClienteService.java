@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nadilson.cursomc.domain.Categoria;
 import com.nadilson.cursomc.domain.Cliente;
 import com.nadilson.cursomc.repositories.ClienteRepository;
 import com.nadilson.cursomc.services.exceptions.ObjectNotFoundException;
