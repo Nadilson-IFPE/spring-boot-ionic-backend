@@ -12,6 +12,7 @@ import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 import com.nadilson.cursomc.domain.Categoria;
+import com.nadilson.cursomc.dto.CategoriaDTO;
 import com.nadilson.cursomc.repositories.CategoriaRepository;
 import com.nadilson.cursomc.services.exceptions.DataIntegrityException;
 import com.nadilson.cursomc.services.exceptions.ObjectNotFoundException;
@@ -56,5 +57,11 @@ public class CategoriaService {
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), 
 				orderBy);		
 		return repo.findAll(pageRequest);
+	}
+	
+	
+	// Método auxiliar que instancia uma Categortia a partir de um DTO
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
 	}
 }
