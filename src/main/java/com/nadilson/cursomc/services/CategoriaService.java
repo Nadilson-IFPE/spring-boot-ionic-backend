@@ -8,7 +8,6 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
-import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.stereotype.Service;
 
 import com.nadilson.cursomc.domain.Categoria;
@@ -60,7 +59,7 @@ public class CategoriaService {
 	}
 	
 	
-	// Método auxiliar que instancia uma Categortia a partir de um DTO
+	// Método auxiliar que instancia uma Categoria a partir de um DTO
 	public Categoria fromDTO(CategoriaDTO objDto) {
 		return new Categoria(objDto.getId(), objDto.getNome());
 	}
