@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.nadilson.cursomc.domain.Categoria;
+import com.nadilson.cursomc.domain.Cliente;
 import com.nadilson.cursomc.dto.CategoriaDTO;
 import com.nadilson.cursomc.repositories.CategoriaRepository;
 import com.nadilson.cursomc.services.exceptions.DataIntegrityException;
@@ -34,9 +35,15 @@ public class CategoriaService {
 		return repo.save(obj);
 	}
 	
+	/*
+	 * public Categoria update(Categoria obj) { find(obj.getId()); return
+	 * repo.save(obj); }
+	 */
+	
 	public Categoria update(Categoria obj) {
-		find(obj.getId());
-		return repo.save(obj);
+		Categoria newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
 	}
 	
 	public void delete(Integer id) {
@@ -62,5 +69,9 @@ public class CategoriaService {
 	// Método auxiliar que instancia uma Categoria a partir de um DTO
 	public Categoria fromDTO(CategoriaDTO objDto) {
 		return new Categoria(objDto.getId(), objDto.getNome());
+	}
+	
+	private void updateData(Categoria newObj, Categoria obj) {
+		newObj.setNome(obj.getNome());
 	}
 }
