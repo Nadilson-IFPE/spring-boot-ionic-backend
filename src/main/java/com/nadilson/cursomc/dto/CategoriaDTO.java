@@ -2,11 +2,11 @@ package com.nadilson.cursomc.dto;
 
 import java.io.Serializable;
 
-import com.nadilson.cursomc.domain.Categoria;
-
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
+
+import com.nadilson.cursomc.domain.Categoria;
 
 
 public class CategoriaDTO implements Serializable{
@@ -26,8 +26,6 @@ public class CategoriaDTO implements Serializable{
 		id = obj.getId();
 		nome = obj.getNome();
 	}
-
-
 
 	public Integer getId() {
 		return id;
